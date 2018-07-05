@@ -389,6 +389,7 @@ class QEMURunner(Runner):
 
                 # did a crash occur?
                 if ret < 0:
+                    # which type of crash the program causes
                     if abs(ret) == signal.SIGSEGV or abs(ret) == signal.SIGILL:
                         l.info("Input caused a crash (signal %d) during dynamic tracing", abs(ret))
                         l.debug(repr(self.input))
